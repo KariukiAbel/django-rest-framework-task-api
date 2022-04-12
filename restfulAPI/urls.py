@@ -21,9 +21,10 @@ from restapp import views
 
 # router = routers.DefaultRouter()
 router = routers.SimpleRouter()
+router.register('due_tasks', views.DueTaskViewSet)
 router.register('task', views.TaskViewSet)
 router.register('completed_tasks', views.CompletedTaskViewSet)
-router.register('due_tasks', views.DueTaskViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
