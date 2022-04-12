@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from restfulAPI.restapp.views import TaskViewSet
+# from restapp.views import TaskViewSet,DueTaskViewSet, CompletedTaskViewSet
+from restapp import views
 
-router = routers.DefaultRouter()
-router.register('task', TaskViewSet)
+# router = routers.DefaultRouter()
+router = routers.SimpleRouter()
+router.register('task', views.TaskViewSet)
+router.register('completed_tasks', views.CompletedTaskViewSet)
+router.register('due_tasks', views.DueTaskViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
